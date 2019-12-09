@@ -1,0 +1,36 @@
+<div class="sign-up text-center">
+    <h3 class="text-center">Sign-Up or 
+        <a routerLink="/login">Login</a>
+        if you have an account
+    </h3>
+    <form #f="ngForm">
+                                            <!-- name -->
+        <input ngModel name='name' #name="ngModel" type="text" class="form-control" placeholder="Name" required>
+        <div *ngIf="name.invalid && name.touched" class="warning" >Name is required</div>
+                                            
+                                            <!-- Email -->
+        <input ngModel name='email' #email="ngModel" [disabled]="name.invalid" type="email" class="form-control" placeholder="Email" required email>
+        <div *ngIf="email.errors?.required && email.touched" class="warning" >email is required</div>
+        <div *ngIf="email.errors?.email && email.touched" class="warning" >This is not email format</div>
+
+                                            <!-- password -->
+        <input ngModel name='pass' #pass="ngModel" [disabled]="email.invalid || name.invalid" type="password" class="form-control" placeholder="Password" required minlength="5">
+        <div *ngIf="pass.errors?.required && pass.touched" class="warning" >Password is required</div>
+
+                                            <!-- Confirm Password -->
+        <input ngModel name='passConfirm' #passConfirm='ngModel' [disabled]="pass.invalid || email.invalid || name.invalid" type="password" class="form-control" placeholder="Password Confirmation" required>
+
+        <div *ngIf="passConfirm.errors?.required && passConfirm.touched" class="warning" >Please confirm your password</div>
+
+        <div *ngIf="passConfirm.value !== pass.value && passConfirm.touched && pass.valid" class="warning" >Password can't match</div>
+        <div *ngIf="passConfirm.length > pass.length" class="warning" >Password can't match</div>
+
+
+                                            <!-- Address -->
+        <input ngModel name='address' #address="ngModel" [disabled]="email.invalid || name.invalid || pass.invalid || passConfirm.invalid || passConfirm.value !== pass.value" type="text" class="form-control" placeholder="Type Your Address" required>
+        <div *ngIf="address.invalid && address.touched" class="warning" >Address is required</div>
+
+                                        
+        <button [disabled]="f.invalid || passConfirm.value !== pass.value" class="btn btn-primary">Creat Your Account</button>
+    </form>
+</div>

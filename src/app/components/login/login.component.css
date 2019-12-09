@@ -1,0 +1,47 @@
+
+div.login
+{ 
+    background-color: #efefef4d;
+    border: 1px solid rgb(220, 216, 216);
+    border-radius: 10px;
+    margin: 4% 20%;
+    padding: 2% 10%;
+}
+div.login h3
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #504c4c;
+    font-size: 120%;
+}
+form input
+{
+    margin: 1.5% 0;
+    font-weight: 300;
+    font-size: .9em;
+}
+form input:focus
+{
+    box-shadow: none;
+}
+.form-control:disabled
+{
+    background-color: #fff;
+}
+form div.warning
+{
+    color: rgb(243, 94, 94);
+    font-family: monospace;
+}
+
+/* ///////////////////////////////////////////////////////////////////// */
+@media (max-width: 768px)    /* mobile screen */
+{
+    div.login
+    {
+        font-size: .9em;
+    }
+    button
+    {
+        font-size: .6em;
+    }
+}

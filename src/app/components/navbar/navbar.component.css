@@ -1,0 +1,18 @@
+:host                   /*  to style host of this component (app-navpar)*/
+{
+    width: 100%;
+}
+
+/* ///////// */
+li.goto-right
+{
+    position: absolute;
+    right: 30px;
+    top: 28%
+}
+.logout
+{
+    padding: 1px 5px !important;
+    background-color: #a22d38;
+    border: none;
+}
