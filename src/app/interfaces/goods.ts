@@ -1,6 +1,7 @@
 export interface Goods {
-name?: string,
-price: number,
-desc?: string,   /// description
-imgURL?: string,
+    id?: string,
+    name?: string,
+    price?: number,
+    desc?: string,   /// description
+    imgURL?: string,
 }

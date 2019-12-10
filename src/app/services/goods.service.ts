@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Goods } from '../interfaces/goods';
+import { AngularFirestore } from "@angular/fire/firestore";
 
 @Injectable({
   providedIn: 'root'
@@ -7,31 +7,9 @@ import { Goods } from '../interfaces/goods';
 export class GoodsService {
 
 
-  constructor() { }
+  constructor(private fireStore: AngularFirestore) { }
   
-  goods: Array<Goods> = [
-    {name: 'razer-blade-hero-v3',
-     price: 10,
-      desc: 'This is a wider card with supporting text below as a natural. This content is a little bit longer',
-      imgURL: 'assets/razer-blade-hero-laptop-v3.png',
-    },
-
-    {name: 'Lenovo',
-     price: 10,
-      desc: 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer',
-      imgURL: 'assets/lenovo.jpeg',
-    },
-
-    {name: 'DELL',
-     price: 10,
-      desc: 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer',
-      imgURL: 'assets/dell.jpeg',
-    },
-    
-    {name: 'HP',
-     price: 10,
-      desc: 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer',
-      imgURL: 'assets/hp.jpeg',
-    },
-  ]
+  getAllGoods(){
+    return this.fireStore.collection('goods')
+  }
 }

@@ -1,13 +1,13 @@
 <div class="container home">
     <div class="row">
-        <div class="col col-lg-3 col-md-4 col-sm-6 col-xs-2" *ngFor="let good of goods; index as i">
+        <div class="col col-lg-3 col-md-4 col-sm-6 col-xs-2" *ngFor="let good of goods">
             <div class="card">
                 <div class="price">{{good.price | currency}}</div>
                 <img [src]="good.imgURL" class="card-img-top" alt="No Image Found">
                 <div class="card-body text-center">
-                  <h5 class="card-title">{{good.name | titlecase}}</h5>
+                  <h5 class="card-title">{{good.name | titlecase | truncate:[10, '..']}}</h5>
                   <p class="card-text">{{good.desc | truncate:[50]}}</p>
-                  <a (click)="addToCart(i)" class="btn btn-primary">Add To Cart</a>
+                  <a (click)="addToCart(good.id)" class="btn btn-primary">Add To Cart</a>
                 </div>
               </div>
         </div>

@@ -2,7 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import { AngularFireModule } from "@angular/fire";
+//  to deal with firebase database
+import { AngularFireModule } from "@angular/fire";   // to intialize firebase
+import { AngularFirestoreModule } from "@angular/fire/firestore";   // to get data from storage
+
+////////////////////////////////////////////////////////////
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +51,7 @@ import { FormsModule } from '@angular/forms';
                                       appId: "1:980373676049:web:e5337514ef01b7db6ed1b0",
                                       measurementId: "G-MYS5NZRQWF"
                                     }),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
