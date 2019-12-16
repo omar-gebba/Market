@@ -5,6 +5,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //  to deal with firebase database
 import { AngularFireModule } from "@angular/fire";   // to intialize firebase
 import { AngularFirestoreModule } from "@angular/fire/firestore";   // to get data from storage
+import { AngularFireAuthModule } from "@angular/fire/auth"
 
 ////////////////////////////////////////////////////////////
 
@@ -52,6 +53,7 @@ import { FormsModule } from '@angular/forms';
                                       measurementId: "G-MYS5NZRQWF"
                                     }),
     AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
