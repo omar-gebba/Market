@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -8,7 +9,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AuthService {
 
-  constructor(private authFire: AngularFireAuth) { }
+  user: Observable<firebase.User>;
+  userUID: string = '';
+
+  constructor(private authFire: AngularFireAuth) {
+    this.user = authFire.user;
+   }
 
   signUp(email, Password){
     return this.authFire.auth.createUserWithEmailAndPassword(email, Password);

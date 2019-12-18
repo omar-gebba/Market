@@ -16,6 +16,9 @@ export class SignUpComponent implements OnInit {
   errorMessage: string = '';
 
   ngOnInit() {
+    this.authServ.user.subscribe((user)=>{
+      if (user) this.router.navigate(['/']);
+    })
   }
 
   signUp(form){

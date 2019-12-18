@@ -9,11 +9,16 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authSer: AuthService, private router: Router) { }
+  constructor(private authSer: AuthService, private router: Router) { 
+    this.authSer.user.subscribe((user)=>{
+      if (user) this.router.navigate(['/']);
+    })
+  }
 
   errorMeasage: string = '';
 
   ngOnInit() {
+    
   }
   login(form){
     let data = form.value;

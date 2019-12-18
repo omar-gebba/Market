@@ -9,18 +9,18 @@
         <li class="nav-item">
             <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isUser" >
             <a class="nav-link" routerLink="/cart" routerLinkActive="active" >Cart</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="! isUser" >
             <a class="nav-link" routerLink="/login" routerLinkActive="active" >Log-In</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="! isUser" >
             <a class="nav-link" routerLink="/sign-up" routerLinkActive="active" >Sign-Up</a>
         </li>
         <!-- use conditional styling to style this button in small screen  -->
         <li class="nav-item" [ngClass]="{'goto-right': !isOpen}">     
-            <button class="btn btn-danger logout" (click)="logout()">Log-Out</button> 
+            <button class="btn btn-danger logout" *ngIf="isUser" (click)="logout()">Log-Out</button> 
         </li>
         </ul>
     </div>

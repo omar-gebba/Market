@@ -10,9 +10,15 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   constructor(private authFire: AuthService, private router: Router) { }
-  isOpen: Boolean;                      /// it's false by default
+  isOpen: Boolean;  
+  isUser: Boolean;                    /// it's false by default
 
   ngOnInit() {
+    this.authFire.user.subscribe((user)=>{
+      if(user) this.isUser = true;
+      if(user) this.authFire.userUID = user.uid;
+      else this.isUser = false;
+    })
   }
 
   toggleShow(){
@@ -20,7 +26,7 @@ export class NavbarComponent implements OnInit {
   }
   logout(){
     this.authFire.logout()
-    .then(()=>this.router.navigate['/login'])
+    .then(()=>this.router.navigate(['/login']))
   }
 
 }
