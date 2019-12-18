@@ -14,11 +14,11 @@ export class AuthService {
     return this.authFire.auth.createUserWithEmailAndPassword(email, Password);
   }
 
-  login(){
-
+  login(email, password){
+    return this.authFire.auth.signInWithEmailAndPassword(email, password);
   }
 
   logout(){
-
+    return this.authFire.auth.signOut();
   }
 }

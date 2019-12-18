@@ -20,7 +20,7 @@
         </li>
         <!-- use conditional styling to style this button in small screen  -->
         <li class="nav-item" [ngClass]="{'goto-right': !isOpen}">     
-            <button class="btn btn-danger logout">Log-Out</button>
+            <button class="btn btn-danger logout" (click)="logout()">Log-Out</button> 
         </li>
         </ul>
     </div>
