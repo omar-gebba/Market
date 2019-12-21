@@ -1,26 +1,22 @@
 <div class="container home">
     <div class="row">
-        <div class="col col-lg-3 col-md-4 col-sm-6 col-xs-2" *ngFor="let good of goods">
+        <div class="col col-lg-3 col-md-4 col-sm-6 col-xs-2" *ngFor="let good of goods; index as i">
             <div class="card">
                 <div class="price">{{good.price | currency}}</div>
                 <img [src]="good.imgURL" class="card-img-top" alt="No Image Found">
                 <div class="card-body text-center">
                   <h5 class="card-title">{{good.name | titlecase | truncate:[10, '..']}}</h5>
                   <p class="card-text">{{good.desc | truncate:[50]}}</p>
-                  <a (click)="addToCart(good.id)" class="btn btn-primary">Add To Cart</a>
+                  <a *ngIf="add !== i" (click)="buy(i)" class="btn btn-primary">Buy</a>
+                  <div *ngIf="add === i">
+                      <input name="amount" #amount type="number" class="form-control" placeholder="Amount">
+                      <a class="btn btn-primary add-cart" (click)="addToCart(i, amount)">Add To Cart</a>
+                  </div>
                 </div>
               </div>
         </div>
     </div>
 </div>
-
-<!-- 
-
-HomeComponent.html:8 ERROR TypeError: Cannot read property 'length' of undefined
-    at TruncatePipe.transform
-
- -->
-
 
 
 

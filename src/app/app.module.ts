@@ -56,6 +56,6 @@ import { FormsModule } from '@angular/forms';
     AngularFireAuthModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

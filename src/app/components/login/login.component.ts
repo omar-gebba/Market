@@ -9,11 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authSer: AuthService, private router: Router) { 
-    this.authSer.user.subscribe((user)=>{
-      if (user) this.router.navigate(['/']);
-    })
-  }
+  constructor(private authServ: AuthService, private router: Router) { }
 
   errorMeasage: string = '';
 
@@ -22,7 +18,7 @@ export class LoginComponent implements OnInit {
   }
   login(form){
     let data = form.value;
-    this.authSer.login(data.email, data.pass)
+    this.authServ.login(data.email, data.pass)
     .then(()=>{
       this.errorMeasage = '';
       this.router.navigate(['/'])

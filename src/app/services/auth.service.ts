@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   user: Observable<firebase.User>;
-  userUID: string = '';
+  userUID: string = '';       ///// ====>>>> to get user id from nav component and use it in whole app
 
   constructor(private authFire: AngularFireAuth) {
     this.user = authFire.user;

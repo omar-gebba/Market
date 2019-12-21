@@ -9,15 +9,20 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private authFire: AuthService, private router: Router) { }
+  constructor(private authServ: AuthService, private router: Router) { }
   isOpen: Boolean;  
   isUser: Boolean;                    /// it's false by default
 
   ngOnInit() {
-    this.authFire.user.subscribe((user)=>{
-      if(user) this.isUser = true;
-      if(user) this.authFire.userUID = user.uid;
-      else this.isUser = false;
+    this.authServ.user.subscribe((user)=>{
+      if(user) {
+        this.isUser = true;
+        this.authServ.userUID = user.uid;    /// this for using this id in authService
+        }
+      else {
+        this.isUser = false;
+        this.authServ.userUID = '';
+      }
     })
   }
 
@@ -25,7 +30,7 @@ export class NavbarComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
   logout(){
-    this.authFire.logout()
+    this.authServ.logout()
     .then(()=>this.router.navigate(['/login']))
   }
 

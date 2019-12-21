@@ -1,1 +1,40 @@
-<p>cart works!</p>
+<div class="container">
+    <div class="cart" *ngIf="cartItems">
+        
+        <div class="row" *ngFor="let item of cartItems; index as i">
+            <div class="col col-lg-6 cart-items" >
+                <div class="controle" style="margin-top: 3%;">
+                    <div class="btn btn-primary" style="margin-right: 3%;">Buy Order</div>
+                    <div class="btn btn-danger">Cancel</div>
+                </div>
+
+                <div class="name cart-info">
+                    <span class="lable">Name: </span>
+                    <span class="content" style="margin-left: 1.6em;">{{ item?.name }}</span>
+                </div>
+
+                <div class="price cart-info">
+                    <span class="lable">Price: </span>
+                    <span class="content" style="margin-left: 1.8em;">{{ item?.price }}</span>
+                </div>
+                
+                <div class="amount cart-info" style="display: inline-block;">
+                    <span class="lable">Quantity:</span> 
+                    <input class="text-center form-control" type="number" name="Amount" #amount [ngModel]="item.amount"  value="item.amount"/>
+                </div>
+
+                <div class="desc cart-info"> 
+                    <span class="lable" style="display: inline-block;">Description </span>
+                    <span class="desc" style="display: block;    margin-left: 20px;
+                        font-family: monospace;">{{ item?.desc | truncate :[desc, '...more'] }}</span>
+                </div>
+            </div>
+            <div class="col col-lg-6 text-center cart-img">
+                <img [src]="item?.imgURL" alt="no image">
+            </div>
+            <hr style="width: 100%;">
+        </div>
+        
+    </div>
+    
+</div>

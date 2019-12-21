@@ -1,0 +1,33 @@
+.row
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+div.cart-info
+{
+    margin-top: 10px;
+}
+
+span.lable
+{
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+span.content
+{
+    margin-right: 15px;
+}
+img
+{
+    max-width: 300px;
+    max-height: 300px;
+}
+input
+{
+    width: 17%;
+    display: inline-block;
+    padding: 1px;
+    height: 1.5em;
+    margin-left: 4%;
+}
