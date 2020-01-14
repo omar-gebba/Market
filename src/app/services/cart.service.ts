@@ -20,4 +20,12 @@ export class CartService {
   editCart(){
     return this.fireStore.collection('users/'+ this.authSer.userUID + '/cart')
   }
+  deleteItem(id){
+    return this.fireStore.doc('users/'+ this.authSer.userUID + '/cart/' + id).delete();
+  }
+  updateItem(id, amount){
+    return this.fireStore.doc('users/'+ this.authSer.userUID + '/cart/' + id).update({
+      amount
+    });
+  }
 }

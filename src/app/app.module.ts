@@ -5,7 +5,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //  to deal with firebase database
 import { AngularFireModule } from "@angular/fire";   // to intialize firebase
 import { AngularFirestoreModule } from "@angular/fire/firestore";   // to get data from storage
-import { AngularFireAuthModule } from "@angular/fire/auth"
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireStorageModule } from "@angular/fire/storage";
 
 ////////////////////////////////////////////////////////////
 
@@ -22,6 +23,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { FormsModule } from '@angular/forms';
     GoodsComponent,
     NotFoundComponent,
     NavbarComponent,
-    TruncatePipe
+    TruncatePipe,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { FormsModule } from '@angular/forms';
                                     }),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { Cart } from 'src/app/interfaces/cart';
 
@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
 
   cartItems: Cart[] = [];
   desc: string;
+  totalPrice: number;
 
   ngOnInit() {
     this.cart.cartItems().subscribe((cart)=>{
@@ -22,10 +23,13 @@ export class CartComponent implements OnInit {
         ...data.payload.doc.data()
         }
       })
-    }) 
-
+    })
   }
 
-  
-
+  deleteFromCart(index){
+    this.cart.deleteItem(this.cartItems[index].id);
+  }
+  updateOrder(index){
+    this.cart.updateItem(this.cartItems[index].id, this.cartItems[index].amount);
+  }
 }
