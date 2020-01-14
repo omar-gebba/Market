@@ -3,21 +3,20 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate {
+export class DashGuardService implements CanActivate {
 
   constructor(private authSer: AuthService, private router: Router) { }
 
-  canActivate(rout: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean|Observable<boolean>|Promise<boolean> {
-    return new Promise(resolve =>{
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean|Observable<boolean>|Promise<boolean>{
+    return new Promise(resolve => {
       this.authSer.user.subscribe(user => {
-        if (user) resolve (true)
+        if(user) resolve (true);
         else{
           resolve (false);
-          this.router.navigate(['/login']);
+          this.router.navigate(['/login'])
         }
       })
     })

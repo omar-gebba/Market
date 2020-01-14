@@ -10,6 +10,7 @@ import { GoodsComponent } from './components/goods/goods.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuardService } from './services/guard/auth-guard.service';
+import { DashGuardService } from './services/guard/dash-guard.service';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path:'sign-up', component: SignUpComponent},
   {path:'cart', component: CartComponent, canActivate:[AuthGuardService]},
   {path:'admin', component: AccountComponent},
-  {path:'dashboard', component: DashboardComponent},
+  {path:'dashboard', component: DashboardComponent, canActivate: [DashGuardService]},
   {path:'**', component: NotFoundComponent},
 ];
 
