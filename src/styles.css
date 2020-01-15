@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+div.routing
+{
+    position: relative;
+    width:100%;
+}
+div.routing > *
+{
+    width:100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}

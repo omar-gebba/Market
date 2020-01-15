@@ -1,29 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BrowserModule }  from '@angular/platform-browser';
+import { NgModule }       from '@angular/core';
+import {NgbModule}        from '@ng-bootstrap/ng-bootstrap';
 
 //  to deal with firebase database
-import { AngularFireModule } from "@angular/fire";   // to intialize firebase
-import { AngularFirestoreModule } from "@angular/fire/firestore";   // to get data from storage
-import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireModule }        from "@angular/fire";   // to intialize firebase
+import { AngularFirestoreModule }   from "@angular/fire/firestore";   // to get data from storage
+import { AngularFireAuthModule }    from "@angular/fire/auth";
 import { AngularFireStorageModule } from "@angular/fire/storage";
 
 ////////////////////////////////////////////////////////////
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { CartComponent } from './components/cart/cart.component';
-import { AccountComponent } from './components/account/account.component';
-import { OrdersComponent } from './components/orders/orders.component';
-import { GoodsComponent } from './components/goods/goods.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { TruncatePipe } from './pipes/truncate.pipe';
-import { FormsModule } from '@angular/forms';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AppRoutingModule }         from './app-routing.module';
+import { BrowserAnimationsModule }  from "@angular/platform-browser/animations";
+import { AppComponent }             from './app.component';
+import { HomeComponent }            from './components/home/home.component';
+import { LoginComponent }           from './components/login/login.component';
+import { SignUpComponent }          from './components/sign-up/sign-up.component';
+import { CartComponent }            from './components/cart/cart.component';
+import { AccountComponent }         from './components/account/account.component';
+import { OrdersComponent }          from './components/orders/orders.component';
+import { GoodsComponent }           from './components/goods/goods.component';
+import { NotFoundComponent }        from './components/not-found/not-found.component';
+import { NavbarComponent }          from './components/navbar/navbar.component';
+import { TruncatePipe }             from './pipes/truncate.pipe';
+import { FormsModule }              from '@angular/forms';
+import { DashboardComponent }       from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
