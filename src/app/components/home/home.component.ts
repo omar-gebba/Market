@@ -4,6 +4,8 @@ import { Goods } from 'src/app/interfaces/goods';
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 import { Cart } from 'src/app/interfaces/cart';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,7 @@ import { Cart } from 'src/app/interfaces/cart';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  constructor(private goodsSer: GoodsService, private cart: CartService) { }
+  constructor(private goodsSer: GoodsService, private cart: CartService, private authSer: AuthService, private router: Router) { }
   
   goods: Goods[] = [];
   add: number = -1;
@@ -31,7 +33,8 @@ goodsObservable: Subscription;   //// to unsubscribe home component
 
 
   buy(index){
-    this.add = index;
+    if(this.authSer.userUID) this.add = +index;
+    else this.router.navigate(['/login'])
   }
   addToCart(index, amount){
     if (amount.value <= 0 ) amount.value = 1;
